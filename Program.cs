@@ -88,6 +88,7 @@ namespace BookSwap
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IFriendRequestService, FriendRequestService>();
             builder.Services.AddScoped<IBookService, BookService>();
+            builder.Services.AddScoped<ITradeRequestService, TradeRequestService>();
 
 
             var app = builder.Build();

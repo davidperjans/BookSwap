@@ -99,7 +99,7 @@ namespace BookSwap.Services
 
         public async Task<IEnumerable<TradeRequest>> GetPendingTradeRequestsByUserAsync(int userId)
         {
-            return await _context.TradeRequests.Where(tradeRequest => tradeRequest.Id == userId).ToListAsync();
+            return await _context.TradeRequests.Where(tradeRequest => tradeRequest.ReceiverId == userId).ToListAsync();
         }
     }
 }
