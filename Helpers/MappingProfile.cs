@@ -10,6 +10,9 @@ namespace BookSwap.Helpers
         {
             CreateMap<RegisterDto, User>();
             CreateMap<LoginDto, User>();
+            CreateMap<FriendRequestDto, FriendRequest>();
+            CreateMap<TradeRequestDto, TradeRequest>();
+            CreateMap<BookDto,  Book>();
         }
     }
 }
