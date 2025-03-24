@@ -76,11 +76,11 @@ namespace BookSwap.Services
             return serviceResult;
         }
 
-        public async Task<ServiceResult> RejectFriendRequestAsync(int senderId, int recieverId)
+        public async Task<ServiceResult> RejectFriendRequestAsync(int requestId, int recieverId)
         {
             var serviceResult = new ServiceResult();
 
-            var friendRequest = _context.FriendRequests.FirstOrDefault(fr => fr.SenderId == senderId && fr.ReceiverId == recieverId);
+            var friendRequest = _context.FriendRequests.FirstOrDefault(fr => fr.Id == requestId && fr.ReceiverId == recieverId);
 
             if (friendRequest == null)
             {

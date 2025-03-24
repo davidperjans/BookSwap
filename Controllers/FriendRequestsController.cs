@@ -52,14 +52,14 @@ namespace BookSwap.Controllers
             return Unauthorized("Invalid user ID.");
         }
 
-        [HttpPost("accept-friendrequest")]
-        public async Task<IActionResult> AcceptFriendRequestAsync([FromBody] AcceptFriendRequestDto acceptFriendRequestDto)
+        [HttpPost("accept/{requestId}")]
+        public async Task<IActionResult> AcceptFriendRequestAsync(int requestId)
         {
             var receiverId = GetSenderIdFromToken();
 
             if (receiverId.HasValue)
             {
-                var result = await _friendRequestService.AcceptFriendRequestAsync(acceptFriendRequestDto.RequestId, receiverId.Value);
+                var result = await _friendRequestService.AcceptFriendRequestAsync(requestId, receiverId.Value);
                 if (!result.IsSuccess)
                 {
                     return BadRequest(result.ErrorMessage);
@@ -67,6 +67,23 @@ namespace BookSwap.Controllers
                 return Ok(result.Message);
             }
 
+            return Unauthorized("Invalid user ID.");
+        }
+
+        [HttpPost("reject/{requestId}")]
+        public async Task<IActionResult> RejectFriendRequestAsync(int requestId)
+        {
+            var receiverId = GetSenderIdFromToken();
+
+            if (receiverId.HasValue)
+            {
+                var result = await _friendRequestService.RejectFriendRequestAsync(requestId, receiverId.Value);
+                if (!result.IsSuccess)
+                {
+                    return BadRequest(result.ErrorMessage);
+                }
+                return Ok(result.Message);
+            }
             return Unauthorized("Invalid user ID.");
         }
 
