@@ -1,6 +1,8 @@
 using BookSwap.Data;
 using BookSwap.Helpers;
 using BookSwap.Services;
+using BookSwap.Validators;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -23,6 +25,10 @@ namespace BookSwap
 
             builder.Services.AddTransient<FakeDataService>();
             builder.Services.AddTransient<DataSeeder>();
+
+            builder.Services.AddValidatorsFromAssemblyContaining<RegisterDtoValidator>();
+
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
