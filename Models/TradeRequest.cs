@@ -12,5 +12,6 @@ namespace BookSwap.Models
         public int SenderBookId { get; set; }
         public int ReceiverBookId { get; set; }
         public RequestStatus Status { get; set; }
+        public DateTime SentAt { get; set; }
     }
 }

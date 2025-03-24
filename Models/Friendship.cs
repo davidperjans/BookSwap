@@ -8,5 +8,7 @@
 
         public int User2Id { get; set; }
         public User User2 { get; set; }
+
+        public DateTime CreatedAt { get; set; }
     }
 }
