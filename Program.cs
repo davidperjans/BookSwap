@@ -1,4 +1,4 @@
-
+using BookSwap.Services;
 using BookSwap.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,10 +12,15 @@ namespace BookSwap
 
             // Add services to the container.
 
+            builder.Services.AddTransient<FakeDataService>();
+            builder.Services.AddTransient<DataSeeder>();
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            
 
 
             builder.Services.AddDbContext<AppDbContext>(options =>
