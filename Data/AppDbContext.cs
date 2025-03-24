@@ -46,7 +46,7 @@ namespace BookSwap.Data
             // 📌 Friendship (Relation mellan två users)
             modelBuilder.Entity<Friendship>()
                 .HasOne(f => f.User1)
-                .WithMany()
+                .WithMany(u => u.Friends)
                 .HasForeignKey(f => f.User1Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
