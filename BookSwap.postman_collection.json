@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "76c54861-ef3b-4d13-b5af-e2006c7b5584",
+		"name": "BookSwap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40496878"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"string\",\r\n  \"password\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7001/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"string\",\r\n  \"password\": \"string\",\r\n  \"confirmPassword\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7001/api/Auth/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/Auth/profile",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"Auth",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"string\",\r\n  \"author\": \"string\",\r\n  \"genre\": \"string\",\r\n  \"description\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7001/api/Books/add",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"Books",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/Books/delete/ID",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"Books",
+								"delete",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-owner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/Books/change-owner/ID",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"Books",
+								"change-owner",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/Books/user-books",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"Books",
+								"user-books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FriendRequests",
+			"item": [
+				{
+					"name": "send-friendrequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"receiverId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7001/api/FriendRequests/send-friendrequest",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"FriendRequests",
+								"send-friendrequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accept/id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/FriendRequests/accept/ID",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"FriendRequests",
+								"accept",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reject/id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/FriendRequests/reject/ID",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"FriendRequests",
+								"reject",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pending/id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/FriendRequests/pending/ID",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"FriendRequests",
+								"pending",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TradeRequests",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "send-traderequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"receiverId\": 0,\r\n  \"senderBookId\": 0,\r\n  \"receiverBookId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7001/api/TradeRequests/send-traderequest",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"TradeRequests",
+								"send-traderequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accept/id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/TradeRequests/accept/ID",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"TradeRequests",
+								"accept",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reject/id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/TradeRequests/reject/ID",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"TradeRequests",
+								"reject",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pending/id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "loginToAccessToken",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7001/api/TradeRequests/pending/ID",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"TradeRequests",
+								"pending",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
